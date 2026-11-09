@@ -29,6 +29,12 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Epistemic Engine")
+        try:
+            from PySide6.QtGui import QIcon
+            if os.path.exists("assets_icon.ico"):
+                self.setWindowIcon(QIcon("assets_icon.ico"))
+        except Exception:
+            pass
         self.resize(1366, 768)
         self.setStyleSheet(THEME_QSS)
         self.graph = KnowledgeGraph()
