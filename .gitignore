@@ -1,0 +1,9 @@
+build/
+dist/
+*.spec
+snap.py
+snap2.py
+__pycache__/
+*.pyc
+epistemic.db
+research_report.md
