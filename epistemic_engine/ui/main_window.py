@@ -5,6 +5,7 @@ from PySide6.QtWidgets import (QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, Q
     QComboBox, QLineEdit, QFormLayout, QFrame)
 from PySide6.QtCore import Qt
 from .graph_view import GraphView
+from .graph3d import Graph3DView
 from .heatmap_view import HeatmapView
 from .theme import THEME_QSS, COLORS
 from ..core.knowledge_item import KnowledgeItem, EpistemicCategory, ValidationStatus
@@ -70,7 +71,7 @@ class MainWindow(QMainWindow):
         self.tabs = QTabWidget()
         root.addWidget(self.tabs)
         gtab = QWidget(); gl = QHBoxLayout(gtab)
-        self.graph_view = GraphView(); gl.addWidget(self.graph_view, 3)
+        self.graph_view = Graph3DView(); gl.addWidget(self.graph_view, 3)
         self.item_list = QListWidget(); gl.addWidget(self.item_list, 1)
         self.tabs.addTab(gtab, "? Knowledge Graph")
         etab = QWidget(); el = QVBoxLayout(etab)
