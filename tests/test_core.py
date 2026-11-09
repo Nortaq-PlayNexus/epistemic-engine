@@ -63,3 +63,10 @@ def test_storage_roundtrip(tmp_path):
     st.save("g", g)
     g2 = st.load("g")
     assert len(g2.nodes) == len(g.nodes)
+def test_detect_contradictions_polarity():
+    from epistemic_engine.core.knowledge_item import KnowledgeItem
+    from epistemic_engine.core.analysis import detect_contradictions
+    a = KnowledgeItem(statement="Drug X reduces inflammation significantly")
+    b = KnowledgeItem(statement="Drug X does not reduce inflammation significantly")
+    cs = detect_contradictions([a, b])
+    assert len(cs) >= 1
